@@ -18,8 +18,7 @@
 # ===============================
 [[headers]]
   for = "/*"
-  [headers.values]
-    Content-Encoding = "br, gzip"
+  [headers.values]    
     Cache-Control = "public, max-age=31536000, immutable"
     ETag = ""
     X-Content-Type-Options = "nosniff"
@@ -62,3 +61,4 @@
 [functions]
   node_bundler = "none"
   included_files = []
+
