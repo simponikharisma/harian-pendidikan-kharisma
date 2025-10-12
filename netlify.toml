@@ -1,0 +1,64 @@
+# ===============================
+# Netlify Configuration for Khudama' Kharisma
+# ===============================
+[build]
+  publish = "."
+  command = ""
+
+# ===============================
+# Redirect all routes to index.html (SPA safe)
+# ===============================
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# ===============================
+# Caching & Compression
+# ===============================
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Encoding = "br, gzip"
+    Cache-Control = "public, max-age=31536000, immutable"
+    ETag = ""
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+
+# Jangan cache index.html agar update langsung tampil
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# Content-Type yang eksplisit untuk CSS & JS
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+
+# ======== PWA Support ========
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Content-Type = "application/manifest+json"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Service-Worker-Allowed = "/"
+    Cache-Control = "no-cache, no-store, must-revalidate"
+
+# ===============================
+# Disable serverless/edge (save resources)
+# ===============================
+[functions]
+  node_bundler = "none"
+  included_files = []
