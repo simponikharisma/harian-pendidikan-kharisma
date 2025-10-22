@@ -1737,16 +1737,6 @@ table tbody tr:hover {
   min-height: 32px; /* Tetap touch friendly */
 }
 
-/* Checkbox yang lebih kecil */
-.check-item input[type="checkbox"] {
-  width: 16px !important;
-  height: 16px !important;
-  accent-color: #1e40af;
-  cursor: pointer;
-  flex-shrink: 0;
-}
-
-
 
 /* Mobile optimization untuk checklist compact */
 @media (max-width: 768px) {
@@ -1813,17 +1803,9 @@ table tbody tr:hover {
     font-size: 0.7rem !important;
   }
   
-  .check-item input[type="checkbox"] {
-    width: 14px !important;
-    height: 14px !important;
-  }
+
 }
 
-/* Hover effects untuk compact version */
-.checklist-header:hover {
-  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
-  transform: translateY(-1px);
-}
 
 .check-item:hover {
   background: linear-gradient(135deg, #e0f2fe, #bae6fd);
@@ -1947,24 +1929,6 @@ table tbody tr:hover {
   background: #f3f6fb;
 }
 
-/* === Hapus checkbox default & buat lingkaran custom === */
-.check-item input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
-  border: 2px solid #0b57d0;
-  border-radius: 50%;
-  position: relative;
-  cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
-  flex-shrink: 0;
-}
-
-.check-item input[type="checkbox"]:checked {
-  background: #0b57d0;
-  border-color: #0b57d0;
-}
 
 
 
@@ -2049,36 +2013,8 @@ table tbody tr:hover {
   }
 }
 
-/* === Hapus checkbox default & buat lingkaran custom === */
-.check-item input[type="checkbox"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
-  border: 2px solid #0b57d0;
-  border-radius: 50%;           /* 🔹 bentuk bulat */
-  position: relative;
-  cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease;
-  flex-shrink: 0;
-}
 
-.check-item input[type="checkbox"]:checked {
-  background: #0b57d0;          /* 🔹 biru solid saat dicentang */
-  border-color: #0b57d0;
-}
-
-.check-item input[type="checkbox"]:checked::after {
-  content: "";
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  border-radius: 50%;           /* 🔹 titik putih di tengah */
-}
-
+.
 /* ==== FILTER BAR COMPACT + SEJAJAR UNTUK SEMUA PERANGKAT ==== */
 .filter-bar {
   background: #fff;
@@ -2237,3 +2173,43 @@ table tbody tr:hover {
   }
 }
 
+/* Fix tampilan bulatan di Android */
+.check-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;              /* pastikan benar-benar sama */
+  height: 20px;
+  min-width: 20px;          /* cegah penyusutan di HP */
+  min-height: 20px;
+  border-radius: 50%;
+  border: 2px solid #1a73e8;
+  background-color: #fff;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  transform: translateZ(0); /* paksa re-render GPU agar bentuk bulat */
+}
+
+.check-item input[type="checkbox"]:checked {
+  background-color: #1a73e8;
+  border-color: #1a73e8;
+}
+
+.check-item input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+}
+
+/* Tambahkan agar stabil di semua layar */
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+  .check-item input[type="checkbox"] {
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
