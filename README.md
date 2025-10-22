@@ -12,4 +12,4 @@ Aplikasi ini dirancang untuk membantu lembaga pendidikan dalam mengelola pendidi
 ## Status
 Aplikasi ini digunakan **khusus untuk internal lembaga**.  
 Tidak tersedia untuk publik atau pihak ketiga.
-"# harian-pendidikan-kharisma" 
+
