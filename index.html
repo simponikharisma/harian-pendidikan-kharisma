@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="icons/logo.png">
+  <!-- FONT ARAB MODERN DENGAN KASHIDA -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Scheherazade+New&display=swap" rel="stylesheet">
+
+  <title>Setoran Harian - KHUDAMA' KHARISMA</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- ====== JS PDF LIBRARIES ====== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#1a73e8">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>📖 Khudama' Kharisma</h1>
+      <p>Pencatatan Setoran Al-Qur'an - Nadhom - Hadis Harian</p>
+    </header>
+
+    <!-- LOADING -->
+    <div id="loadingScreen" class="loading-screen">
+      <div class="spinner"></div>
+      <p>Memuat data...</p>
+    </div>
+
+    <div id="mainContent" style="display:none;">
+
+      <!-- =================== TAB NAVIGATION =================== -->
+      <div class="tab-buttons">
+        <button class="tab-btn active" data-tab="rekapTab">📊 Harian</button>
+        <button class="tab-btn" data-tab="laporanTab">📈 Laporan</button>
+      </div>
+
+      <!-- =================== TAB 1: REKAP HARIAN =================== -->
+      <div id="rekapTab" class="tab-content active">
+
+        <!-- =================== FORM INPUT =================== -->
+        <div class="input-section">
+          <h3>📝 Input Setoran Santri</h3>
+          <form id="santriForm">
+
+            <div class="form-group">
+              <label for="unit">Unit Ndalem:</label>
+              <select id="unit" required>
+                <option value="">Pilih Unit</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="penyimak">Penyimak:</label>
+              <select id="penyimak" required>
+                <option value="">Pilih Penyimak</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="nama">Nama Santri:</label>
+              <select id="nama" required>
+                <option value="">Pilih Unit dulu</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="kitab">Kitab:</label>
+              <select id="kitab" class="arabic" required>
+                <option value="">Pilih Kitab</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="dariAyat">Dari:</label>
+              <select id="dariAyat" class="arabic" required>
+                <option value="">Pilih Kitab dulu</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="sampaiAyat">Sampai:</label>
+              <select id="sampaiAyat" class="arabic" required>
+                <option value="">Pilih Kitab dulu</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="keterangan">Catatan Penyimak:</label>
+              <textarea id="keterangan" rows="3" placeholder="Catatan khusus, evaluasi, dll..."></textarea>
+            </div>
+			
+			<div class="form-group">
+			  <label>Status Setoran:</label>
+			  <div class="status-checkbox">
+				<label><input type="radio" name="status_lancar" value="Lancar" required> Lancar</label>
+				<label><input type="radio" name="status_lancar" value="Tidak Lancar"> Tidak Lancar</label>
+			  </div>
+			</div>
+
+            <button type="submit" class="btn-primary" id="submitBtn">
+              <span class="btn-text">💾 Simpan Setoran</span>
+              <span class="btn-loading" style="display:none;">Menyimpan...</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- =================== DATA TABEL =================== -->
+        <div class="data-section">
+          <div class="section-header">
+            <h3>📊 Rekap Setoran Harian</h3>            
+          </div>
+		  
+		  <div class="filter-bar">
+		  <div class="filter-group">
+			<label for="searchNama">Cari Nama Santri:</label>
+			<input type="text" id="searchNama" placeholder="Ketik nama santri..." autocomplete="off" inputmode="text">
+		  </div>
+
+		  <div class="filter-group">
+			<label for="filterUnit">Pilih Unit Ndalem:</label>
+			<select id="filterUnit">
+			  <option value="Semua">Semua Unit</option>
+			</select>
+		  </div>
+
+		  <div class="filter-group sort-controls">
+		  <label for="sortColumn">Urutkan:</label>
+		  <div class="sort-inline">
+			<select id="sortColumn">
+			  <option value="Nama_Lengkap">Nama</option>
+			  <option value="Kelas">Kelas</option>
+			  <option value="judul_arab">Kitab</option>
+			  <option value="penyimak">Penyimak</option>
+			  <option value="created_at">Tanggal</option>
+			  <option value="total_ayat">Setor</option>
+			  <option value="totalKeseluruhan">Total</option>
+			  <option value="keterangan">Ket</option>
+			</select>
+			<div class="sort-buttons">
+			  <button id="btnAsc" class="btn-sort">&#9650;</button>
+			  <button id="btnDesc" class="btn-sort">&#9660;</button>
+			</div>
+		  </div>
+		</div>
+
+		</div>
+
+          <div class="table-container">
+            <table id="dataTable">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th data-col="Nama_Lengkap" class="sortable">Nama</th>
+                  <th data-col="Kelas" class="sortable">Kelas</th>
+                  <th data-col="nama_kitab" class="sortable">Kitab</th>
+                  <th data-col="dari_ayat" class="sortable text-center">Dari Bait</th>
+                  <th class="lafadz-col">Lafadz</th>
+                  <th data-col="sampai_ayat" class="sortable text-center">Sampai Bait</th>
+                  <th class="lafadz-col">Lafadz</th>
+                  <th data-col="total_ayat" class="sortable text-center">Setor</th>
+                  <th data-col="totalKeseluruhan" class="sortable text-center">Total</th>
+                  <th data-col="tanggal" class="sortable">Tanggal</th>
+                  <th data-col="penyimak" class="sortable">Penyimak</th>
+				  <th data-col="status_lancar" class="sortable">Status</th>
+                  <th>Ket</th>
+                 
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <tr><td colspan="14" style="text-align:center;">Memuat data...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- =================== TAB 2: LAPORAN SOROGAN =================== -->
+      <div id="laporanTab" class="tab-content">      
+		
+		<div class="filter-section">
+		  <h4>Filter:</h4>
+
+		  <!-- Radio Sekolah -->
+		  <div id="shiftFilter" class="radio-group">
+			<label><input type="radio" name="shift" value="semua" checked> Semua Sekolah</label>
+			<label><input type="radio" name="shift" value="pagi"> Sekolah Pagi</label>
+			<label><input type="radio" name="shift" value="malam"> Sekolah Malam</label>
+		  </div>
+
+		  <!-- KELAS -->
+		  <div class="checklist-wrapper" id="kelasWrapper">
+			<div class="checklist-header" data-target="kelasBody">
+			  <div class="checklist-title">Kelas</div>
+			  <div class="checklist-toggle">
+				<div class="triangle" id="kelasTriangle"></div>
+				<div class="small-meta" id="kelasCount"></div>
+			  </div>
+			</div>
+			<div id="kelasBody" class="checklist-body collapsed">
+			  <div id="kelasChecklist" class="checklist"></div>
+			</div>
+		  </div>
+
+		  <div class="checklist-divider"></div>
+
+		  <!-- UNIT NDALEM -->
+		  <div class="checklist-wrapper" id="unitWrapper">
+			<div class="checklist-header" data-target="unitBody">
+			  <div class="checklist-title">Unit Ndalem</div>
+			  <div class="checklist-toggle">
+				<div class="triangle" id="unitTriangle"></div>
+				<div class="small-meta" id="unitCount"></div>
+			  </div>
+			</div>
+			<div id="unitBody" class="checklist-body collapsed">
+			  <div id="unitChecklist" class="checklist"></div>
+			</div>
+		  </div>
+
+		  <div class="checklist-divider"></div>
+
+		  <!-- KITAB -->
+		  <div class="checklist-wrapper" id="kitabWrapper">
+			<div class="checklist-header" data-target="kitabBody">
+			  <div class="checklist-title">Kitab</div>
+			  <div class="checklist-toggle">
+				<div class="triangle" id="kitabTriangle"></div>
+				<div class="small-meta" id="kitabCount"></div>
+			  </div>
+			</div>
+			<div id="kitabBody" class="checklist-body collapsed">
+			  <div id="kitabChecklist" class="checklist"></div>
+			</div>
+		  </div>
+
+		</div>
+
+		<!-- RINGKASAN GLOBAL -->
+		<div id="laporanSummary" class="summary-box">
+		  <div>
+			  <img src="https://i.imgur.com/huVGgA2.png" alt="Ikon Statistik" class="summary-icon">
+			  <b>Total Santri:</b> <span id="totalSantri">0</span>
+			</div>
+		  <div><b>Khatam:</b> <span id="persenKhatam">0%</span> | <b>Lancar:</b> <span id="persenLancar">0%</span> | <b>Setoran:</b> <span id="sudahSetoran">0%</span></div>
+		  <div><b>Belum Khatam:</b> <span id="belumKhatam">0%</span> | <b>Belum Lancar:</b> <span id="belumLancar">0%</span> | <b>Belum Setoran:</b> <span id="belumSetoran">0%</span></div>		  
+		</div>
+
+
+		<div class="laporan-download-all">
+		  <button class="btn-download-all" id="btnDownloadAll" type="button">
+		  <span class="btn-icon">⬇️</span>
+		  <span class="btn-label">Download Laporan</span>
+		  <span class="btn-spinner" aria-hidden="true"></span>
+		</button>
+		</div>
+
+
+
+        <div class="laporan-container">
+          <h4>🔸 Rekap Prosentase Kelas</h4>
+          <table id="tblKelas" class="laporan-table">
+           <thead>
+			  <tr>
+				<th>No</th>
+				<th>Kelas</th>
+				<th>Total Santri</th>
+				<th>Belum Khatam</th>
+				<th>Belum Lancar</th>
+				<th>% Khatam</th>
+				<th>% Lancar</th>
+			  </tr>
+			</thead>
+            <tbody></tbody>
+          </table>
+
+          <h4>🔸 Rekap Prosentase Unit Ndalem</h4>
+          <table id="tblUnit" class="laporan-table">
+            <thead>
+			  <tr>
+				<th>No</th>
+				<th>Unit</th>
+				<th>Total Santri</th>
+				<th>Belum Khatam</th>
+				<th>Belum Lancar</th>
+				<th>% Khatam</th>
+				<th>% Lancar</th>
+			  </tr>
+			</thead>
+            <tbody></tbody>
+          </table>
+
+          <h4>🔸 Status Khatam & Lancar</h4>
+          <table id="tblStatus" class="laporan-table">
+            <thead>
+              <tr>
+                <th>No</th><th>Nama</th><th>Kelas</th><th>Unit</th><th>Kitab</th>
+                <th>Total Setor</th><th>Batas</th><th>Status Khatam</th><th>Status Lancar</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+
+          <h4>🔸 Santri Belum Setoran</h4>
+          <table id="tblBelum" class="laporan-table">
+            <thead><tr><th>No</th><th>Nama</th><th>Kelas</th><th>Unit</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP EDIT -->
+  <div id="editPopup" class="popup-container" style="display:none;">
+    <div class="popup-card">
+      <div class="popup-header">
+        <h3>✏️ Edit Setoran Santri</h3>
+        <button class="popup-close" id="closeEditPopup">✖</button>
+      </div>
+
+      <form id="editForm">
+        <input type="hidden" id="editId">
+
+        <div class="form-group">
+          <label for="editNama">Nama:</label>
+          <input type="text" id="editNama" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="editKelas">Kelas:</label>
+          <input type="text" id="editKelas" readonly>
+        </div>
+
+        <div class="form-group">
+          <label for="editKitab">Kitab Nadhom:</label>
+          <select id="editKitab" class="arabic" required></select>
+        </div>
+
+        <div class="form-group">
+          <label for="editDariAyat">Dari Bait/Ayat:</label>
+          <select id="editDariAyat" class="arabic" required></select>
+        </div>
+
+        <div class="form-group">
+          <label for="editSampaiAyat">Sampai Bait:</label>
+          <select id="editSampaiAyat" class="arabic" required></select>
+        </div>
+
+        <div class="form-group">
+          <label for="editKeterangan">Catatan Penyimak:</label>
+          <textarea id="editKeterangan" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="editPenyimak">Penyimak:</label>
+          <select id="editPenyimak" required>
+            <option value="">Pilih Penyimak</option>
+          </select>
+        </div>
+		
+		<div class="form-group">
+		  <label>Status Setoran:</label>
+		  <div class="status-checkbox">
+			<label><input type="radio" name="edit_status_lancar" value="Lancar"> Lancar</label>
+			<label><input type="radio" name="edit_status_lancar" value="Tidak Lancar"> Tidak Lancar</label>
+		  </div>
+		</div>
+
+        <button type="submit" class="btn-primary" id="updateBtn">
+          <span class="btn-text">💾 Simpan Perubahan</span>
+          <span class="btn-loading" style="display:none;">Menyimpan...</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- POPUP NOTIF -->
+  <div id="notificationPopup" class="notification-popup">
+    <span class="notification-icon">✓</span>
+    <span class="notification-message" id="notificationMessage">Berhasil disimpan!</span>
+  </div>
+  
+
+
+<!-- ====== SCRIPT APLIKASI ====== -->
+<script src="script.js"></script>
+
+</body>
+</html>

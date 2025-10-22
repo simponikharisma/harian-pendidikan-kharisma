@@ -1,0 +1,2239 @@
+/* ==========================
+   STYLING UMUM
+========================== */
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #f5f7fb;
+  color: #333;
+}
+
+.container {
+  max-width: 100% !important;
+  padding: 12px 18px !important;
+}
+
+/* ==========================
+   HEADER
+========================== */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+  color: #1a73e8;
+}
+
+header p {
+  color: #666;
+  margin: 0;
+}
+
+.connection-status {
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+/* ==========================
+   FORM INPUT - IMPROVED FOR MOBILE
+========================== */
+.input-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+
+.input-section h3 {
+  margin-bottom: 15px;
+  color: #1a73e8;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+/* Improved input styling for mobile */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+  width: 100%;
+  padding: 14px 12px;
+  border: 1px solid #cdd9ed;
+  border-radius: 8px;
+  font-size: 16px; /* Prevent zoom on iOS */
+  background: #fff;
+  transition: all 0.3s ease;
+  height: 48px; /* Consistent height */
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+  height: auto;
+}
+
+/* Select dropdown improvements */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L2 4h8z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 40px;
+}
+
+/* ==========================
+   BUTTONS - IMPROVED FOR MOBILE
+========================== */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  min-height: 44px; /* Minimum touch target */
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #1a73e8;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #1765c0;
+}
+
+.btn-secondary {
+  background-color: #f1f3f5;
+  color: #333;
+  margin-left: 5px;
+}
+
+.btn-secondary:hover {
+  background-color: #e2e6ea;
+}
+
+.btn-edit {
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  padding: 10px 12px;
+  min-height: 40px;
+}
+
+.btn-edit:hover {
+  background-color: #3c8c41;
+}
+
+.btn-delete {
+  background-color: #f44336;
+  color: #fff;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  padding: 10px 12px;
+  min-height: 40px;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+}
+
+/* ==========================
+   TABEL DATA
+========================== */
+.table-container {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+thead {
+  background-color: #1a73e8;
+  color: #fff;
+}
+
+th, td {
+  padding: 10px 8px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+th:first-child, td:first-child {
+  text-align: center;
+  width: 50px;
+}
+
+td {
+  vertical-align: middle;
+}
+
+/* ==========================
+   SECTION HEADER
+========================== */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* ==========================
+   LOADING SCREEN
+========================== */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e0e0e0;
+  border-top: 4px solid #1a73e8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==========================
+   POPUP EDIT
+========================== */
+.popup-container {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.25);
+  z-index: 1000;
+}
+
+.popup-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  padding: 20px;
+  width: 360px;
+  max-width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: fadeIn 0.25s ease;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.popup-header h3 {
+  margin: 0;
+  color: #1a73e8;
+}
+
+.popup-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #888;
+  min-height: auto;
+  padding: 5px;
+}
+
+.popup-close:hover {
+  color: #e53935;
+}
+
+@keyframes fadeIn {
+  from { transform: translateY(-8px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+
+
+/* ==========================
+   TAMPILAN PER UNIT (GAYA EXCEL)
+========================== */
+.unit-section {
+  margin-top: 28px;
+  border: 2px solid #1a73e8;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Header nama unit */
+.unit-header {
+  background: #1a73e8;
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  border-bottom: 2px solid #1a73e8;
+}
+
+/* Scroll horizontal */
+.unit-section .table-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* ======== TABEL GAYA EXCEL ======== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 950px;
+  border: 1px solid #1a73e8;
+}
+
+/* Header tabel elegan */
+.data-table thead tr {
+  background: #d9e8ff;
+  color: #0d2b5e;
+}
+
+.data-table th,
+.data-table td {
+  padding: 8px 6px;
+  border: 1px solid #1a73e8;
+  vertical-align: middle;
+}
+
+.data-table td:not(.arabic),
+.data-table th:not(.arabic) {
+  text-align: center;
+}
+
+.data-table td.arabic {
+  text-align: right !important;
+  direction: rtl;
+}
+
+
+/* === Sticky Kolom Nama Santri === */
+.data-table th:nth-child(2),
+.data-table td:nth-child(2) {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+  max-width: 180px; /* 🔹 ubah sesuai panjang nama santri */
+  box-shadow: 2px 0 3px rgba(0, 0, 0, 0.08); /* bayangan lembut kanan */
+  border-right: 1.4px solid #1a73e8;
+  background-color: #fff; /* agar tidak transparan di atas kolom lain */
+}
+
+/* Header kolom Nama Santri */
+.data-table th:nth-child(2) {
+  background: #d9e8ff !important;
+  text-align: center !important;
+  color: #0d2b5e;
+  font-weight: 600;
+  z-index: 4; /* lebih tinggi dari sel data */
+}
+
+/* Isi kolom Nama Santri */
+.data-table td:nth-child(2) {
+  text-align: left !important;
+  background-color: #fff;
+}
+
+.data-table td:nth-child(12) {
+  text-align: left !important;
+}
+
+/* === Warna baris terbaru (update hijau lembut) === */
+.data-table tr[style*="background-color:#e8f5e9;"] td {
+  background-color: #e8f5e9 !important;
+}
+
+/* Sticky kolom Nama juga ikut warna hijau */
+.data-table tr[style*="background-color:#e8f5e9;"] td:nth-child(2) {
+  background-color: #e8f5e9 !important;
+}
+
+/* === Hover efek biru pastel untuk semua baris === */
+.data-table tbody tr:hover td {
+  background-color: #edf5ff !important; /* biru pastel lembut */
+}
+
+/* Pastikan sticky kolom ikut efek hover */
+.data-table tbody tr:hover td:nth-child(2) {
+  background-color: #edf5ff !important;
+}
+
+/* Garis pembatas kolom Nama */
+.data-table th:nth-child(2),
+.data-table td:nth-child(2) {
+  border-right: 1.4px solid #1a73e8;
+}
+
+.data-table th:nth-child(1),
+.data-table td:nth-child(1) {
+  border-right: 1.4px solid #1a73e8;
+}
+
+
+/* Scrollbar */
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #a6d1ff;
+  border-radius: 10px;
+}
+
+.section-header select {
+  padding: 6px 8px;
+  border: 1px solid #cdd9ed;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #fff;
+  margin-left: 6px;
+}
+
+.section-header label {
+  font-weight: 600;
+  color: #333;
+  margin-right: 6px;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sort-controls select {
+  padding: 6px 8px;
+  border: 1px solid #cdd9ed;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #fff;
+}
+
+.btn-sort {
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  min-height: auto;
+}
+
+.btn-sort:hover {
+  background-color: #1765c0;
+}
+
+/* ==========================
+   FOCUS WARNA BIRU FORM - IMPROVED
+========================== */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* ===================== NOTIFICATION POPUP ===================== */
+.notification-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateX(150%);
+  transition: transform 0.3s ease-in-out;
+  max-width: 300px;
+}
+
+.notification-popup.show {
+  transform: translateX(0);
+}
+
+.notification-popup.success {
+  background: #4CAF50;
+}
+
+.notification-popup.error {
+  background: #f44336;
+}
+
+.notification-icon {
+  font-size: 18px;
+}
+
+.notification-message {
+  flex: 1;
+  font-weight: 500;
+}
+
+/* ==========================
+   RESPONSIVE MOBILE OPTIMIZATION
+========================== */
+
+/* Base font size adjustment for mobile */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .container {
+    padding: 12px;
+  }
+  
+  /* Header adjustments */
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  /* Form improvements */
+  .input-section {
+    padding: 18px;
+    border-radius: 10px;
+  }
+  
+  .input-section h3 {
+    font-size: 1.1rem;
+  }
+  
+  /* Larger inputs for mobile */
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    padding: 16px 14px;
+    height: 52px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+  
+  textarea {
+    padding: 14px;
+    min-height: 120px;
+    font-size: 16px;
+  }
+  
+  /* Better focus for mobile */
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  input[type="date"]:focus,
+  select:focus,
+  textarea:focus {
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Form group spacing for mobile */
+  .form-group {
+    margin-bottom: 24px;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Select dropdown larger arrow for mobile */
+  select {
+    background-size: 14px;
+    background-position: right 16px center;
+    padding-right: 45px;
+  }
+  
+  /* Button improvements for mobile */
+  button {
+    padding: 14px 18px;
+    min-height: 48px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+  
+  .btn-edit, .btn-delete {
+    padding: 12px 14px;
+    min-height: 44px;
+    font-size: 0.9rem;
+  }
+  
+  /* Table improvements */
+  .table-container {
+    padding: 10px;
+  }
+  
+  th, td {
+    padding: 12px 6px;
+    font-size: 0.9rem;
+  }
+  
+  /* Unit section improvements */
+  .unit-section {
+    margin-top: 20px;
+  }
+  
+  .unit-header {
+    padding: 12px 10px;
+    font-size: 1rem;
+  }
+  
+  .data-table th,
+  .data-table td {
+    padding: 10px 5px;
+  }
+  
+  .data-table {
+    min-width: 800px;
+  }
+  
+  /* Section header improvements */
+  .section-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+  
+  .sort-controls {
+    justify-content: space-between;
+  }
+  
+  .sort-controls select {
+    padding: 8px 10px;
+    font-size: 1rem;
+  }
+  
+  /* Popup improvements */
+  .popup-card {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  html {
+    font-size: 13px;
+  }
+  
+  .container {
+    padding: 8px;
+  }
+  
+  header h1 {
+    font-size: 1.3rem;
+  }
+  
+  .input-section, .table-container {
+    border-radius: 8px;
+  }
+  
+  /* Stack buttons vertically on very small screens */
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .button-group button {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+  
+  /* Form adjustments for very small screens */
+  .input-section {
+    padding: 15px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    padding: 14px 12px;
+    height: 50px;
+    border-radius: 8px;
+  }
+  
+  textarea {
+    padding: 12px;
+    min-height: 100px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  /* Improve table readability */
+  .data-table {
+    min-width: 700px;
+  }
+  
+  .data-table th:nth-child(2),
+  .data-table td:nth-child(2) {
+    max-width: 140px;
+  }
+  
+  /* Notification popup adjustment */
+  .notification-popup {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: none;
+  }
+}
+
+/* Touch-friendly improvements for all mobile devices */
+@media (hover: none) and (pointer: coarse) {
+  /* Increase tap targets */
+  button, 
+  .btn-edit, 
+  .btn-delete,
+  select,
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 44px;
+  }
+  
+  /* Improve feedback for touch */
+  button:active,
+  .btn-edit:active,
+  .btn-delete:active {
+    transform: scale(0.98);
+    transition: transform 0.1s;
+  }
+  
+  /* Prevent text selection on interactive elements */
+  button, select {
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  
+  /* Active state feedback for inputs */
+  input[type="text"]:active,
+  input[type="number"]:active,
+  input[type="date"]:active,
+  select:active,
+  textarea:active {
+    background-color: #f8f9fa;
+    border-color: #1a73e8;
+  }
+}
+
+/* Arabic text optimization for mobile */
+@media (max-width: 768px) {
+  .arabic,
+  option.arabic,
+  #editDariAyat option,
+  #editSampaiAyat option,
+  #dariAyat option,
+  #sampaiAyat option {
+    font-size: 1.1em;
+    line-height: 1.8;
+  }
+}
+
+/* ==========================
+   PLACEHOLDER STYLING
+========================== */
+::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+::-webkit-input-placeholder {
+  color: #999;
+}
+
+:-ms-input-placeholder {
+  color: #999;
+}
+
+/* ==========================
+   VALIDATION STATES
+========================== */
+input:invalid,
+select:invalid,
+textarea:invalid {
+  border-color: #ff4444;
+}
+
+input:valid,
+select:valid,
+textarea:valid {
+  border-color: #00C851;
+}
+
+/* ==========================
+   DISABLED STATE
+========================== */
+input:disabled,
+select:disabled,
+textarea:disabled {
+  background-color: #f5f5f5;
+  color: #999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Responsif untuk popup di mobile kecil */
+@media (max-width: 500px) {
+  .popup-card {
+    width: 92%;
+    padding: 15px;
+    max-height: 90vh;
+  }
+}
+
+/* ==========================
+   DROPDOWN RTL (ARAB)
+   Arrow di kiri untuk tampilan alami
+========================== */
+select.arabic {
+  direction: rtl; /* teks dari kanan ke kiri */
+  text-align: right;
+  font-size: 1.15em;
+  color: #111;
+  border-radius: 6px;
+  border: 1px solid #c8d8f1;
+  background-color: #fff;
+  padding: 6px 28px 6px 10px; /* beri ruang kanan untuk teks, kiri untuk arrow */
+  appearance: none; /* hilangkan default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-position: left 10px center; /* posisikan arrow di kiri */
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23111' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-size: 16px;
+}
+
+/* Hover dan fokus agar tetap modern */
+select.arabic:hover,
+select.arabic:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 0 4px rgba(26, 115, 232, 0.4);
+  outline: none;
+}
+
+/* Opsi dropdown Arab */
+select.arabic option {
+  direction: rtl;
+  text-align: right;
+  font-size: 1.1em;
+  background-color: #fff;
+}
+
+/* Container untuk lafadz nadhom 2 baris */
+.nadhom-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 70px;
+  justify-content: center;
+}
+
+/* Baris pertama dan kedua nadhom */
+
+
+/* Garis pemisah antara dua baris nadhom */
+.nadhom-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 10%, #1a73e8 50%, transparent 90%);
+  margin: 3px 0;
+  opacity: 0.6;
+}
+
+.arabic-single-line {
+  text-align: right;
+  direction: rtl;
+  font-size: 1.2em;
+  line-height: 1.8;
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  white-space: normal;      /* boleh turun baris */
+  word-wrap: break-word;    /* pecah kata kalau panjang */
+  overflow-wrap: break-word;
+}
+
+/* Kolom lafadz yang diperbaiki */
+
+td.lafadz-col {
+  min-width: 200px;
+  max-width: 280px;
+  width: 200px;
+  direction: rtl;
+  text-align: right;
+  vertical-align: middle;
+  line-height: 1.5;
+  white-space: nowrap;         /* teks tetap 1 baris, tidak turun */
+  overflow: hidden;
+  text-overflow: ellipsis;     /* jika terlalu panjang, beri tanda ... */
+  padding: 10px 12px;
+}
+
+/* Samakan ukuran lafadz dan kitab agar seimbang */
+td.lafadz-colkitab {  
+  font-size: 1.2em !important;
+  line-height: 1.8 !important;
+  direction: rtl !important;
+  text-align: right !important;
+  vertical-align: middle;
+  padding: 10px 12px;
+}
+
+
+/* Responsif untuk mobile */
+@media (max-width: 768px) {
+  .nadhom-container {
+    min-height: 60px;
+    gap: 3px;
+  }
+  
+  .nadhom-line {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  
+  td.lafadz-colkitab {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+  
+  .arabic-single-line {
+    font-size: 1em;
+    min-height: 45px;
+  }
+  
+  th.lafadz-col, 
+  td.lafadz-col {
+    min-width: 140px;
+    max-width: 200px;
+    padding: 6px 8px;
+  }
+  
+}
+
+/* ==========================
+   PENYESUAIAN UKURAN ARAB YANG KONSISTEN
+========================== */
+
+/* Kolom kitab - Arab single line */
+td.arabic.lafadz-col,
+.arabic-single-line {
+  font-size: 1.2em !important;
+  line-height: 1.8 !important;
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* Kolom lafadz - untuk single line */
+td.lafadz-col .arabic-single-line {
+  font-size: 1.2em !important;
+  line-height: 1.8 !important;
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* Kolom lafadz - untuk nadhom 2 baris */
+/* === Tampilan Nadhom Arab dengan efek Kashida === */
+.nadhom-line {
+  font-family: "Amiri", "Scheherazade New", serif !important;
+  font-size: 1.2em !important;
+  line-height: 1.8 !important;
+  direction: rtl !important;
+  text-align: justify !important;
+  text-align-last: justify !important; /* agar baris akhir ikut rata kanan kiri */
+  text-justify: inter-word !important;
+  font-variant-ligatures: contextual;  /* ligatur arab aktif */
+  letter-spacing: 0.03em;              /* sedikit renggang, kesan kashida */
+  word-spacing: 0.08em;                /* jarak antar kata lebih lega */
+  -webkit-font-smoothing: antialiased;
+  padding: 4px 0;
+}
+
+.nadhom-line {
+  text-align: justify;
+  text-align-last: justify;
+  text-justify: inter-character;
+  font-family: "Amiri", serif;
+  direction: rtl;
+}
+
+
+/* === FONT ARAB UTAMA === */
+.arabic,
+td.lafadz-col,
+td.lafadz-colkitab,
+.nadhom-line,
+.arabic-single-line {
+  font-family: "Amiri", "Scheherazade New", serif !important;
+  direction: rtl !important;
+}
+
+
+
+/* === OPTION ARAB (NADHOM DI DROPDOWN) - NORMAL TANPA KASHIDA === */
+select.arabic option {
+  font-family: "Amiri", "Scheherazade New", serif !important;
+  direction: rtl;
+  text-align: right;
+  text-align-last: right;
+  text-justify: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  line-height: 1.6;
+}
+
+
+/* Container nadhom */
+.nadhom-container {
+  min-height: 70px;
+  gap: 4px;
+  justify-content: center;
+}
+
+/* Garis pemisah nadhom */
+.nadhom-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 10%, #1a73e8 50%, transparent 90%);
+  margin: 3px 0;
+  opacity: 0.6;
+}
+
+/* ==== Atur ukuran teks dropdown agar tidak terlalu besar di Android ==== */
+select,
+select option {
+  font-size: 14px !important; /* lebih kecil & konsisten */
+  line-height: 1.7 !important;
+}
+
+/* Untuk dropdown Arabic tetap proporsional */
+select.arabic,
+select.arabic option {
+  font-size: 1em !important; /* biar tidak membesar di Android */
+}
+
+@media screen and (max-width: 768px) and (pointer: coarse) {
+  select,
+  select option {
+    font-size: 9px !important;
+  }
+
+  select.arabic,
+  select.arabic option {
+    font-size: 0.85em !important;
+  }
+}
+
+.laporan-container h4 {
+  margin-top: 20px;
+  color: #1a237e;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 5px;
+}
+
+.laporan-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.laporan-table th, .laporan-table td {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+
+.laporan-table th {
+  background-color: #e8eaf6;
+  font-weight: bold;
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+.tab-btn.active {
+  background-color: #1a73e8;
+  color: white;
+}
+
+.checklist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.check-item {
+  background: #f2f2f2;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.radio-group label {
+  cursor: pointer;
+}
+
+/* ========== COLLAPSIBLE CHECKLIST ========== */
+.checklist-wrapper {
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  border: 1px solid #e6eefc;
+  margin-bottom: 6px;
+}
+
+.checklist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  padding: 4px 6px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checklist-title {
+  font-weight: 600;
+  color: #0d47a1;
+  font-size: 0.98rem;
+}
+
+.checklist-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.triangle {
+  width: 12px;
+  height: 12px;
+  mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'><path d='M1 3l4 4 4-4z'/></svg>") no-repeat center / contain;
+  background-color: #1a73e8;
+  transform-origin: 50% 50%;
+  transition: transform 0.2s ease;
+}
+
+.triangle.open {
+  transform: rotate(180deg);
+}
+
+
+
+.checklist-body.collapsed {
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+}
+
+.checklist-body.expanded {
+  max-height: 400px;
+  opacity: 1;
+}
+
+.check-item {
+  background: #f8fbff;
+  color: #0b3b86;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.checklist-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 5%, #e0e7ff 50%, transparent 95%);
+  margin: 6px 0;
+  opacity: 0.9;
+}
+
+/* tabel biru */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+table thead th {
+  background: linear-gradient(180deg, #1a73e8 0%, #1565c0 100%);
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+  padding: 8px 10px;
+  border: 1px solid #0d47a1;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+/* isi tabel rata kiri kecuali header */
+table tbody td {
+  border: 1px solid #dbe3f0;
+  padding: 6px 10px;
+  text-align: left; /* ✅ ubah ke kiri */
+  vertical-align: middle;
+}
+
+/* kolom angka tetap tengah */
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(5),
+td:nth-child(6),
+td:nth-child(7) {
+  text-align: center;
+}
+
+/* === KHUSUS TABEL REKAP KELAS === */
+#tblKelas tbody td {
+  text-align: center; /* hanya tabel ini yang rata kiri */
+}
+
+/* Supaya header rekap kelas tetap tengah */
+#tblKelas thead th {
+  text-align: center;
+}
+
+table tbody tr:nth-child(even) {
+  background: #f9fbff;
+}
+
+table tbody tr:hover {
+  background: #e9f2ff;
+}
+
+.status-checkbox {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.status-checkbox label {
+  font-weight: 500;
+  color: #333;
+}
+
+.status-checkbox input[type="radio"] {
+  margin-right: 6px;
+  transform: scale(1.2);
+}
+
+
+
+/* responsive: kecilkan font di ponsel */
+@media (max-width: 480px) {
+  .checklist-title { font-size: 0.95rem; }
+  .check-item { font-size: 0.9rem; padding: 6px 8px; }
+}
+
+/* ========== Summary box (web) — override ID supaya biru lembut (solid) ======== */
+#laporanSummary {
+  background-color: #e8f0fe;        /* biru lembut solid */
+  color: #0d2b5e !important;        /* paksa teks solid */
+  border: 2px solid #1a73e8;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: inline-block;
+  max-width: 100%;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+
+  /* pastikan gradasi/clip teks tidak terjadi */
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  -webkit-text-fill-color: initial !important;
+}
+#laporanSummary { white-space: normal; word-break: break-word; }
+
+/* ===== Ikon kecil di summary ===== */
+.summary-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  vertical-align: middle;
+  margin-right: 6px;
+  transform: translateY(-1px);
+}
+
+/* ========== Download button animated state ========== */
+.btn-download-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* small icon inside button */
+.btn-download-all .btn-icon {
+  display: inline-block;
+  transform-origin: 50% 50%;
+  transition: transform .25s ease;
+}
+
+/* spinner (hidden by default) */
+.btn-download-all .btn-spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.22);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: btn-spin 0.8s linear infinite;
+}
+
+/* When downloading: show spinner, push icon a bit and animate */
+.btn-download-all.downloading {
+  pointer-events: none;
+  filter: brightness(.98);
+  transform: translateY(-1px);
+}
+
+.btn-download-all.downloading .btn-spinner {
+  display: inline-block;
+}
+
+.btn-download-all.downloading .btn-icon {
+  transform: translateX(-6px) rotate(-8deg);
+  transition: transform .35s cubic-bezier(.2,.9,.3,1);
+}
+
+/* subtle pulsing glint */
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* small animation after download finished */
+.btn-download-all.complete {
+  animation: btn-complete 0.6s ease;
+  background: linear-gradient(90deg, #1a73e8, #1565c0);
+}
+@keyframes btn-complete {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+/* ==========================
+   MOBILE FIX: Checklist laporan terlihat di HP
+========================== */
+@media (max-width: 768px) {
+  .checklist-wrapper {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .checklist-body {
+    max-height: 250px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #d0d7e2;
+    border-radius: 8px;
+    padding: 8px;
+  }
+
+  .checklist label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    padding: 6px 0;
+  }
+
+  .checklist input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+
+  .checklist-header {
+    padding: 10px;
+    background: #f0f5ff;
+    border-radius: 8px;
+    margin-bottom: 5px;
+  }
+}
+/* ==========================
+   Samakan lebar tabel laporan dengan tabel utama
+========================== */
+.laporan-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #1a73e8;
+  min-width: auto; /* samakan dengan tabel utama */
+  background: #fff;
+  font-size: 0.95rem;
+}
+
+.laporan-table th,
+.laporan-table td {
+  border: 1px solid #1a73e8;
+  padding: 8px 6px;
+}
+
+.laporan-table th {
+  background: #d9e8ff;
+  color: #0d2b5e;
+}
+
+.laporan-container {
+  overflow-x: auto; /* supaya tabel tidak terpotong di HP */
+}
+
+/* ==========================
+   FONT & STYLING UNTUK CHECKLIST LAPORAN
+========================== */
+
+/* Checklist wrapper */
+.checklist-wrapper {
+  margin-bottom: 8px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Checklist header */
+.checklist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.checklist-title {
+  font-weight: 700;
+  color: #1e40af;
+  font-size: 1rem !important; /* Ukuran font header */
+  letter-spacing: -0.01em;
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Checklist body */
+
+
+/* Check item individual */
+.check-item {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem !important; /* Ukuran font item */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #bae6fd;
+  color: #0369a1;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif !important;
+  line-height: 1.4;
+}
+
+
+
+/* Label checkbox */
+.check-item label {
+  font-size: 0.9rem !important;
+  font-weight: 500;
+  color: #0369a1;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif !important;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Radio group styling */
+.radio-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.radio-group label {
+  font-size: 0.9rem !important;
+  color: #374151;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif !important;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.radio-group input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #1e40af;
+}
+
+/* Status checkbox khusus */
+.status-checkbox {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.status-checkbox label {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.9rem !important;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.status-checkbox input[type="radio"] {
+  margin-right: 6px;
+  transform: scale(1.1);
+}
+
+/* Mobile optimization untuk checklist */
+@media (max-width: 768px) {
+  .checklist-header {
+    padding: 14px 16px;
+  }
+  
+  .checklist-title {
+    font-size: 0.95rem !important;
+  }
+  
+  .checklist-body {
+    padding: 14px 16px;
+    gap: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .check-item {
+    font-size: 0.85rem !important;
+    padding: 8px 12px;
+    flex: 1 1 calc(50% - 8px);
+    min-width: 140px;
+  }
+  
+  .check-item label {
+    font-size: 0.85rem !important;
+  }
+  
+  .radio-group {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .radio-group label {
+    font-size: 0.85rem !important;
+  }
+  
+  .status-checkbox {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .status-checkbox label {
+    font-size: 0.85rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .checklist-title {
+    font-size: 0.9rem !important;
+  }
+  
+  .check-item {
+    font-size: 0.8rem !important;
+    flex: 1 1 100%;
+    padding: 8px 10px;
+  }
+  
+  .check-item label {
+    font-size: 0.8rem !important;
+  }
+  
+  .radio-group label {
+    font-size: 0.8rem !important;
+  }
+  
+  .status-checkbox label {
+    font-size: 0.8rem !important;
+  }
+}
+
+/* Hover effects */
+.checklist-header:hover {
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+}
+
+.check-item:hover {
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(3, 105, 161, 0.2);
+}
+
+/* Focus states untuk aksesibilitas */
+.check-item input[type="checkbox"]:focus,
+.radio-group input[type="radio"]:focus {
+  outline: 2px solid #1e40af;
+  outline-offset: 2px;
+}
+
+/* ==========================
+   CHECKLIST HEADER - COMPACT SIZE
+========================== */
+
+/* Checklist wrapper yang lebih compact */
+.checklist-wrapper {
+  margin-bottom: 16px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Checklist header yang lebih kecil */
+.checklist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px !important; /* Diperkecil */
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  min-height: 44px; /* Touch friendly tapi compact */
+}
+
+/* Judul checklist yang lebih kecil */
+.checklist-title {
+  font-weight: 600;
+  color: #1e40af;
+  font-size: 0.85rem !important; /* Diperkecil dari 1rem */
+  letter-spacing: -0.01em;
+  font-family: "Poppins", sans-serif !important;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* Triangle toggle yang lebih kecil */
+.triangle {
+  width: 10px !important;
+  height: 10px !important;
+  background: #1e40af;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.triangle.open {
+  transform: rotate(180deg);
+}
+
+/* Checklist body yang compact */
+.checklist-body {
+  padding: 12px 14px !important; /* Diperkecil */
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Check item yang lebih compact */
+.check-item {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  padding: 6px 10px !important; /* Diperkecil */
+  border-radius: 8px;
+  font-size: 0.8rem !important; /* Diperkecil */
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #bae6fd;
+  color: #0369a1;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif !important;
+  line-height: 1.3;
+  min-height: 32px; /* Tetap touch friendly */
+}
+
+/* Checkbox yang lebih kecil */
+.check-item input[type="checkbox"] {
+  width: 16px !important;
+  height: 16px !important;
+  accent-color: #1e40af;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+
+
+/* Mobile optimization untuk checklist compact */
+@media (max-width: 768px) {
+  .checklist-wrapper {
+    margin-bottom: 12px;
+    border-radius: 8px;
+  }
+  
+  .checklist-header {
+    padding: 8px 12px !important;
+    min-height: 40px;
+  }
+  
+  .checklist-title {
+    font-size: 0.8rem !important;
+  }
+  
+  .checklist-body {
+    padding: 10px 12px !important;
+    gap: 6px;
+    max-height: 180px;
+  }
+  
+  .check-item {
+    font-size: 0.75rem !important;
+    padding: 5px 8px !important;
+    flex: 1 1 calc(50% - 6px);
+    min-width: 120px;
+    min-height: 30px;
+  }
+  
+  .check-item label {
+    font-size: 0.75rem !important;
+  }
+  
+  .triangle {
+    width: 8px !important;
+    height: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .checklist-header {
+    padding: 6px 10px !important;
+    min-height: 36px;
+  }
+  
+  .checklist-title {
+    font-size: 0.75rem !important;
+  }
+  
+  .checklist-body {
+    padding: 8px 10px !important;
+  }
+  
+  .check-item {
+    font-size: 0.7rem !important;
+    padding: 4px 6px !important;
+    flex: 1 1 100%;
+    min-height: 28px;
+  }
+  
+  .check-item label {
+    font-size: 0.7rem !important;
+  }
+  
+  .check-item input[type="checkbox"] {
+    width: 14px !important;
+    height: 14px !important;
+  }
+}
+
+/* Hover effects untuk compact version */
+.checklist-header:hover {
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+  transform: translateY(-1px);
+}
+
+.check-item:hover {
+  background: linear-gradient(135deg, #e0f2fe, #bae6fd);
+  transform: translateY(-1px);
+}
+
+/* =================== CEKLIST RAMPING =================== */
+.checklist-wrapper {
+  padding: 10px 14px !important; /* lebih rapat */
+}
+
+.checklist-header {
+  padding: 6px 0 !important; /* tinggi header lebih pendek */
+  min-height: 32px;
+}
+
+.check-item {
+  padding: 3px 0 !important; /* jarak antar item dipersempit */
+  font-size: 0.9rem;
+}
+
+.radio-group,
+.status-checkbox {
+  gap: 6px !important; /* jarak antar tombol lebih rapat */
+  margin-top: 6px !important;
+}
+
+.radio-group label,
+.status-checkbox label {
+  padding: 3px 8px !important; /* tombol radio/checkbox lebih kecil */
+  font-size: 0.85rem !important;
+}
+
+/* =====================================================
+   TOGGLE CHECKLIST: KELAS / UNIT / KITAB (FINAL - SEGITIGA & CEKLIS BULAT)
+   ===================================================== */
+.checklist-wrapper {
+  margin-bottom: 6px !important;
+  padding: 6px 10px !important;
+  border-radius: 10px;
+}
+
+/* Header toggle */
+.checklist-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f7f9fc;
+  padding: 6px 10px !important;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 36px !important;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #222;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.checklist-header:hover {
+  background: #e8f0fe;
+  color: #0b57d0;
+}
+
+/* === Segitiga toggle warna biru === */
+.checklist-header .triangle {
+  width: 0;
+  height: 0;
+  margin-right: 8px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid #0b57d0;
+  transition: transform 0.25s ease, border-top-color 0.25s ease;
+  transform-origin: center;
+}
+
+.checklist-header .triangle.open {
+  transform: rotate(180deg);
+  border-top-color: #1a73e8;
+}
+
+/* Isi checklist */
+.checklist-body {
+  padding: 6px 10px !important;
+  background: #fff;
+  border-left: 2px solid #e4e6eb;
+  border-right: 2px solid #e4e6eb;
+  border-bottom: 2px solid #e4e6eb;
+  border-radius: 0 0 8px 8px;
+  overflow-y: auto;
+  transition: max-height 0.25s ease, opacity 0.25s ease;
+  opacity: 1;
+}
+
+.checklist-body.collapsed {
+  max-height: 0;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.checklist-body.expanded {
+  max-height: 300px;
+  opacity: 1;
+}
+
+/* Item checklist */
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 6px !important;
+  font-size: 0.9rem;
+  min-height: 28px !important;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.check-item:hover {
+  background: #f3f6fb;
+}
+
+/* === Hapus checkbox default & buat lingkaran custom === */
+.check-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #0b57d0;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.check-item input[type="checkbox"]:checked {
+  background: #0b57d0;
+  border-color: #0b57d0;
+}
+
+
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  .checklist-header {
+    padding: 8px 12px !important;
+    min-height: 40px !important;
+  }
+  .checklist-header .triangle {
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid #0b57d0;
+  }
+  .check-item {
+    min-height: 32px !important;
+    padding: 6px 8px !important;
+  }
+}
+
+/* ======= RINGKASAN GLOBAL ======= */
+.summary-box {
+  background: #e8f0fe;
+  color: #0d2b5e;
+  border: 2px solid #1a73e8;
+  border-radius: 10px;
+  padding: 13px;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 0.7rem;
+  margin: 20px auto;
+  display: inline-block;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.summary-box div {
+  margin: 3px 0;
+}
+
+.summary-box b {
+  color: #1a73e8;
+}
+/* Baris pertama: ikon + teks sejajar tengah sempurna */
+#laporanSummary div:first-child {
+  display: flex;
+  align-items: center;     /* vertikal rata tengah */
+  justify-content: center; /* horizontal di tengah */
+  gap: 8px;                /* jarak ikon ↔ teks */
+}
+
+/* Ikon statistik di baris Total Santri */
+#laporanSummary img.summary-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  vertical-align: middle;
+  transform: translateY(-1px);  /* geser dikit biar pas */
+}
+
+/* 📱 Tampilan Android / layar kecil (otomatis menyesuaikan) */
+@media (max-width: 600px) {
+  #laporanSummary {
+    font-size: 0.8rem;        /* 🔹 perkecil tulisan */
+    padding: 10px 12px;       /* 🔹 jarak dalam box lebih rapat */
+    line-height: 1.5;
+  }
+
+  /* Ikon di Android lebih kecil */
+  #laporanSummary img.summary-icon {
+    width: 22px;
+    height: 22px;
+    margin-right: 5px;
+    transform: translateY(-1px);
+  }
+
+  /* Sesuaikan juga baris pertama agar tetap center di HP */
+  #laporanSummary div:first-child {
+    gap: 6px; /* sedikit lebih rapat antara ikon dan teks */
+  }
+}
+
+/* === Hapus checkbox default & buat lingkaran custom === */
+.check-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #0b57d0;
+  border-radius: 50%;           /* 🔹 bentuk bulat */
+  position: relative;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.check-item input[type="checkbox"]:checked {
+  background: #0b57d0;          /* 🔹 biru solid saat dicentang */
+  border-color: #0b57d0;
+}
+
+.check-item input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;           /* 🔹 titik putih di tengah */
+}
+
+/* ==== FILTER BAR COMPACT + SEJAJAR UNTUK SEMUA PERANGKAT ==== */
+.filter-bar {
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.filter-group label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.filter-group input[type="text"],
+.filter-group select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #cdd9ed;
+  border-radius: 6px;
+  height: 42px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+/* ==== MOBILE KHUSUS ANDROID (≤600px) ==== */
+@media (max-width: 600px) {
+  .filter-bar {
+    padding: 8px 10px;
+    gap: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .filter-group label {
+    font-size: 0.85rem;
+    margin-bottom: 2px;
+  }
+
+  .filter-group input,
+  .filter-group select {
+    font-size: 14px;
+    padding: 8px 10px;
+    height: 38px;
+  }
+}
+
+/* ==== URUTKAN: sejajar horizontal rata kiri (desktop & android) ==== */
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.sort-controls label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  margin-right: 6px;
+}
+
+.sort-inline {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 6px;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.sort-inline select {
+  flex: 0 1 170px;
+  padding: 8px 10px;
+  border: 1px solid #cdd9ed;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #fff;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.sort-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-sort {
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+.btn-sort:hover {
+  background-color: #1765c0;
+}
+
+.btn-sort:active {
+  transform: scale(0.96);
+}
+
+/* ==== MOBILE: paksa tetap kiri & rapat ==== */
+@media (max-width: 600px) {
+  .sort-controls {
+    justify-content: flex-start !important;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .sort-inline {
+    justify-content: flex-start !important;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+  }
+
+  .sort-controls label {
+    font-size: 0.9rem;
+    margin-right: 4px;
+  }
+
+  .sort-inline select {
+    flex: 0 1 150px;
+    font-size: 14px;
+    padding: 6px 8px;
+    height: 36px;
+  }
+
+  .btn-sort {
+    font-size: 0.85rem;
+    padding: 6px 8px;
+    width: 34px;
+    height: 34px;
+  }
+}
+
