@@ -1,7 +1,7 @@
 {
   "name": "Harian Kharisma",
   "short_name": "Harian Kharisma",
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
   "background_color": "#003366",
   "theme_color": "#1a73e8",
@@ -20,3 +20,4 @@
     }
   ]
 }
+
