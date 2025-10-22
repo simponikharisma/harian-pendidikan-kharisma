@@ -8,14 +8,14 @@ const VERSION = `v${today.getFullYear()}${String(today.getMonth() + 1).padStart(
 const CACHE_NAME = `kharisma-cache-${VERSION}`;
 
 const FILES_TO_CACHE = [
-  "/",
-  "/index.html",
-  "/style.css",
-  "/script.js",
-  "/icons/icon-152.png",
-  "/icons/icon-192.png",
-  "/icons/logo.png"
+  "./",
+  "./index.html",
+  "./style.css",
+  "./script.js",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png"
 ];
+
 
 self.addEventListener("install", (event) => {
   console.log(`[SW] Installing ${CACHE_NAME}...`);
@@ -61,7 +61,7 @@ self.addEventListener("fetch", (event) => {
           return res;
         })
         .catch(() => {
-          if (req.mode === "navigate") return caches.match("/index.html");
+          if (req.mode === "navigate") return caches.match("./index.html");
         });
     })
   );
@@ -73,3 +73,4 @@ self.addEventListener("message", (event) => {
     self.skipWaiting();
   }
 });
+
